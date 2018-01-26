@@ -5,11 +5,14 @@ class Solution(object):
         :type s: str
         :rtype: str
         """
+		# pointers
         one = 0
         two = len(s)
+		# longest palindrome lenght, and substring
         plen = 1
         cpal = s[one]
         while 1:
+			# find the last matching letter
             f = s.rfind(s[one], one+1,two)
             while f != -1:
                 subs = s[one:f+1]
@@ -22,6 +25,7 @@ class Solution(object):
                         f = s.rfind(s[one], one+1,two)
                 else:
                     break
+			# change letters
             one += 1
             two = len(s)
             if two - one < plen:
